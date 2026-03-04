@@ -28,9 +28,9 @@ const insights = [
  * Edit ticker, name, currentPrice, targetPrice, and changePct below.
  */
 const stockWatchlist = [
-    { display: 'IDX:PTRO', name: 'Petrosea Tbk', currentPrice: 6300, targetPrice: 12000 },
-    { display: 'IDX:TIRT', name: 'Tirta Mahakam Resources Tbk', currentPrice: 500, targetPrice: 1000 },
-    { display: 'IDX:BNBR', name: 'Bakrie & Brothers Tbk', currentPrice: 174, targetPrice: 250 },
+    { display: 'IDX:MEDC', name: 'Medco Energi Internasional Tbk', currentPrice: 1350, targetPrice: 2000 },
+    { display: 'IDX:PGAS', name: 'Perusahaan Gas Negara Tbk', currentPrice: 1550, targetPrice: 2200 },
+    { display: 'IDX:ENRG', name: 'Energi Mega Persada Tbk', currentPrice: 215, targetPrice: 350 },
 ];
 
 
