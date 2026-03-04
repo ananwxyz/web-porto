@@ -24,27 +24,24 @@ const insights = [
 ];
 
 /*
- * ── SECTOR WATCHLIST (automatic) ──
- * Edit ticker and name below.
- * Since Yahoo Finance doesn't always support IDX sector indices directly, 
- * we use the largest representative stock or ETF as a proxy for the sector.
+ * ── STOCK WATCHLIST ──
+ * Edit ticker, name, currentPrice (fallback), and targetPrice below.
  */
-const sectorWatchlist = [
-    { display: 'IDX:ENERGY', ticker: 'ADRO.JK', name: 'Energy Sector (Proxy: ADRO)' },
-    { display: 'IDX:FINANCE', ticker: 'BBCA.JK', name: 'Finance Sector (Proxy: BBCA)' },
-    { display: 'IDX:TECH', ticker: 'GOTO.JK', name: 'Tech Sector (Proxy: GOTO)' },
+const stockWatchlist = [
+    { display: 'IDX:MEDC', ticker: 'MEDC.JK', name: 'Medco Energi Internasional Tbk', currentPrice: 1350, targetPrice: 2000 },
+    { display: 'IDX:PGAS', ticker: 'PGAS.JK', name: 'Perusahaan Gas Negara Tbk', currentPrice: 1550, targetPrice: 2200 },
+    { display: 'IDX:ENRG', ticker: 'ENRG.JK', name: 'Energi Mega Persada Tbk', currentPrice: 215, targetPrice: 350 },
 ];
 
-function formatNumber(num) {
+function formatRupiah(num) {
     if (num == null) return '—';
-    return num.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return 'Rp ' + Math.round(num).toLocaleString('id-ID');
 }
 
-function SectorCard({ sector, index }) {
-    const { price, prevClose, changePct, loading, error } = useStockPrice(sector.ticker);
-
-    // Gunakan harga live
-    const currentPrice = price;
+function StockCard({ stock, index }) {
+    const { price, loading } = useStockPrice(stock.ticker);
+    const currentPrice = price || stock.currentPrice;
+    const potentialUpside = ((stock.targetPrice - currentPrice) / currentPrice) * 100;
 
     return (
         <motion.div
@@ -59,18 +56,18 @@ function SectorCard({ sector, index }) {
             {/* Header */}
             <div style={{ marginBottom: '6px' }}>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
-                    {sector.display}
+                    {stock.display}
                 </span>
             </div>
 
-            {/* Sector name */}
+            {/* Company name */}
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', marginBottom: '16px', letterSpacing: '0.05em' }}>
-                {sector.name}
+                {stock.name}
             </div>
 
             {/* Current Price */}
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-text-primary)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                {formatNumber(currentPrice)}
+                {formatRupiah(currentPrice)}
                 {loading && <span style={{ fontSize: '0.8rem', color: 'var(--color-text-dim)', fontWeight: 'normal' }}>(updating...)</span>}
             </div>
 
@@ -78,31 +75,31 @@ function SectorCard({ sector, index }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                        Index Level
+                        Current Price
                     </span>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-text-secondary)', fontWeight: 600 }}>
-                        {formatNumber(currentPrice)}
+                        {formatRupiah(currentPrice)}
                     </span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                        Prev Close
+                        Target Price
                     </span>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-text-secondary)', fontWeight: 600 }}>
-                        {formatNumber(prevClose)}
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-accent)', fontWeight: 600 }}>
+                        {formatRupiah(stock.targetPrice)}
                     </span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                        Daily Change
+                        Potential Upside
                     </span>
                     <span style={{
                         fontFamily: 'var(--font-mono)',
                         fontSize: '0.75rem',
                         fontWeight: 600,
-                        color: changePct >= 0 ? 'var(--color-accent)' : '#ff5555',
+                        color: potentialUpside >= 0 ? 'var(--color-accent)' : '#ff5555',
                     }}>
-                        {changePct > 0 ? '+' : ''}{changePct?.toFixed(2) || '—'}%
+                        {potentialUpside >= 0 ? '+' : ''}{potentialUpside.toFixed(2)}%
                     </span>
                 </div>
             </div>
@@ -190,7 +187,7 @@ export default function Investment() {
                     </div>
                 </div>
 
-                {/* Sector Watchlist — Automatic Data */}
+                {/* Stock Watchlist — Live Data */}
                 <div>
                     <div
                         style={{
@@ -205,12 +202,12 @@ export default function Investment() {
                             gap: '8px',
                         }}
                     >
-                        <BarChart3 size={14} /> Sector Watchlist
+                        <BarChart3 size={14} /> Stock Watchlist
                     </div>
 
                     <div className="trading-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
-                        {sectorWatchlist.map((sector, i) => (
-                            <SectorCard key={sector.display} sector={sector} index={i} />
+                        {stockWatchlist.map((stock, i) => (
+                            <StockCard key={stock.display} stock={stock} index={i} />
                         ))}
                     </div>
 
