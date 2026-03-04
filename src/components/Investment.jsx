@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { TrendingUp, BarChart3 } from 'lucide-react';
+import { useStockPrice } from '../hooks/useStockPrice';
 
 const insights = [
     {
@@ -39,7 +40,13 @@ function formatRupiah(num) {
 }
 
 function StockCard({ stock, index }) {
-    const potentialUpside = ((stock.targetPrice - stock.currentPrice) / stock.currentPrice) * 100;
+    const ticker = stock.display.split(':')[1] + '.JK';
+    const { price, loading, error } = useStockPrice(ticker);
+
+    // Gunakan harga live jika tersedia, jika tidak gunakan harga hardcoded sebagai fallback (ketika loading/error)
+    const currentPrice = price || stock.currentPrice;
+
+    const potentialUpside = ((stock.targetPrice - currentPrice) / currentPrice) * 100;
 
     return (
         <motion.div
@@ -64,8 +71,9 @@ function StockCard({ stock, index }) {
             </div>
 
             {/* Current Price */}
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-text-primary)', marginBottom: '20px' }}>
-                {formatRupiah(stock.currentPrice)}
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-text-primary)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                {formatRupiah(currentPrice)}
+                {loading && <span style={{ fontSize: '0.8rem', color: 'var(--color-text-dim)', fontWeight: 'normal' }}>(updating...)</span>}
             </div>
 
             {/* Levels */}
@@ -75,7 +83,7 @@ function StockCard({ stock, index }) {
                         Current Price
                     </span>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-text-secondary)', fontWeight: 600 }}>
-                        {formatRupiah(stock.currentPrice)}
+                        {formatRupiah(currentPrice)}
                     </span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
