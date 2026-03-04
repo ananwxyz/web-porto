@@ -26,12 +26,13 @@ const insights = [
 /*
  * ── SECTOR WATCHLIST (automatic) ──
  * Edit ticker and name below.
- * Tickers should be Yahoo Finance sector indices for IDX, e.g., ^JKENRG
+ * Since Yahoo Finance doesn't always support IDX sector indices directly, 
+ * we use the largest representative stock or ETF as a proxy for the sector.
  */
 const sectorWatchlist = [
-    { display: 'IDX:ENERGY', ticker: '^JKENRG', name: 'IDX Energy Sector' },
-    { display: 'IDX:FINANCE', ticker: '^JKFINA', name: 'IDX Finance Sector' },
-    { display: 'IDX:TECH', ticker: '^JKTECH', name: 'IDX Technology Sector' },
+    { display: 'IDX:ENERGY', ticker: 'ADRO.JK', name: 'Energy Sector (Proxy: ADRO)' },
+    { display: 'IDX:FINANCE', ticker: 'BBCA.JK', name: 'Finance Sector (Proxy: BBCA)' },
+    { display: 'IDX:TECH', ticker: 'GOTO.JK', name: 'Tech Sector (Proxy: GOTO)' },
 ];
 
 function formatNumber(num) {
