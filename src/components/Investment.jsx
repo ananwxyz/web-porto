@@ -24,29 +24,26 @@ const insights = [
 ];
 
 /*
- * ── STOCK WATCHLIST (manual) ──
- * Edit ticker, name, currentPrice, targetPrice, and changePct below.
+ * ── SECTOR WATCHLIST (automatic) ──
+ * Edit ticker and name below.
+ * Tickers should be Yahoo Finance sector indices for IDX, e.g., ^JKENRG
  */
-const stockWatchlist = [
-    { display: 'IDX:MEDC', name: 'Medco Energi Internasional Tbk', currentPrice: 1350, targetPrice: 2000 },
-    { display: 'IDX:PGAS', name: 'Perusahaan Gas Negara Tbk', currentPrice: 1550, targetPrice: 2200 },
-    { display: 'IDX:ENRG', name: 'Energi Mega Persada Tbk', currentPrice: 215, targetPrice: 350 },
+const sectorWatchlist = [
+    { display: 'IDX:ENERGY', ticker: '^JKENRG', name: 'IDX Energy Sector' },
+    { display: 'IDX:FINANCE', ticker: '^JKFINA', name: 'IDX Finance Sector' },
+    { display: 'IDX:TECH', ticker: '^JKTECH', name: 'IDX Technology Sector' },
 ];
 
-
-function formatRupiah(num) {
+function formatNumber(num) {
     if (num == null) return '—';
-    return 'Rp ' + Math.round(num).toLocaleString('id-ID');
+    return num.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-function StockCard({ stock, index }) {
-    const ticker = stock.display.split(':')[1] + '.JK';
-    const { price, loading, error } = useStockPrice(ticker);
+function SectorCard({ sector, index }) {
+    const { price, prevClose, changePct, loading, error } = useStockPrice(sector.ticker);
 
-    // Gunakan harga live jika tersedia, jika tidak gunakan harga hardcoded sebagai fallback (ketika loading/error)
-    const currentPrice = price || stock.currentPrice;
-
-    const potentialUpside = ((stock.targetPrice - currentPrice) / currentPrice) * 100;
+    // Gunakan harga live
+    const currentPrice = price;
 
     return (
         <motion.div
@@ -61,18 +58,18 @@ function StockCard({ stock, index }) {
             {/* Header */}
             <div style={{ marginBottom: '6px' }}>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
-                    {stock.display}
+                    {sector.display}
                 </span>
             </div>
 
-            {/* Company name */}
+            {/* Sector name */}
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', marginBottom: '16px', letterSpacing: '0.05em' }}>
-                {stock.name}
+                {sector.name}
             </div>
 
             {/* Current Price */}
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-text-primary)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                {formatRupiah(currentPrice)}
+                {formatNumber(currentPrice)}
                 {loading && <span style={{ fontSize: '0.8rem', color: 'var(--color-text-dim)', fontWeight: 'normal' }}>(updating...)</span>}
             </div>
 
@@ -80,31 +77,31 @@ function StockCard({ stock, index }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                        Current Price
+                        Index Level
                     </span>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-text-secondary)', fontWeight: 600 }}>
-                        {formatRupiah(currentPrice)}
+                        {formatNumber(currentPrice)}
                     </span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                        Target Price
+                        Prev Close
                     </span>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-accent)', fontWeight: 600 }}>
-                        {formatRupiah(stock.targetPrice)}
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-text-secondary)', fontWeight: 600 }}>
+                        {formatNumber(prevClose)}
                     </span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                        Potential Upside
+                        Daily Change
                     </span>
                     <span style={{
                         fontFamily: 'var(--font-mono)',
                         fontSize: '0.75rem',
                         fontWeight: 600,
-                        color: potentialUpside >= 0 ? 'var(--color-accent)' : '#ff5555',
+                        color: changePct >= 0 ? 'var(--color-accent)' : '#ff5555',
                     }}>
-                        {potentialUpside >= 0 ? '+' : ''}{potentialUpside.toFixed(2)}%
+                        {changePct > 0 ? '+' : ''}{changePct?.toFixed(2) || '—'}%
                     </span>
                 </div>
             </div>
@@ -192,7 +189,7 @@ export default function Investment() {
                     </div>
                 </div>
 
-                {/* Stock Watchlist — Manual Data */}
+                {/* Sector Watchlist — Automatic Data */}
                 <div>
                     <div
                         style={{
@@ -207,12 +204,12 @@ export default function Investment() {
                             gap: '8px',
                         }}
                     >
-                        <BarChart3 size={14} /> Stock Watchlist
+                        <BarChart3 size={14} /> Sector Watchlist
                     </div>
 
                     <div className="trading-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
-                        {stockWatchlist.map((stock, i) => (
-                            <StockCard key={stock.display} stock={stock} index={i} />
+                        {sectorWatchlist.map((sector, i) => (
+                            <SectorCard key={sector.display} sector={sector} index={i} />
                         ))}
                     </div>
 
