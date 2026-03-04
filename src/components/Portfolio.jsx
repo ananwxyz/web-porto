@@ -8,18 +8,11 @@ import { ExternalLink } from 'lucide-react';
  */
 const projects = [
     {
-        title: 'Daur Tanggung',
-        description: 'Develop and maintain digital platforms that support environmental programs and improve user engagement.',
-        tags: ['React', 'Node.js', 'PostgreSQL'],
-        accent: '#50fa7b',
-        link: 'https://daurtanggung.com',
-    },
-    {
-        title: 'Coming Soon',
-        description: 'soon...',
-        tags: ['-', '-', '-'],
+        title: 'Temu Karir',
+        description: 'Direktori halaman karir resmi perusahaan Indonesia. Melamar langsung ke sumber resmi, aman dan terverifikasi otomatis.',
+        tags: ['Next.js', 'React.js', 'Cloudflare'],
         accent: '#a8ffc9',
-        link: null,
+        link: 'https://temukarir.com/',
     },
     {
         title: 'Coming Soon',
