@@ -207,6 +207,18 @@ export default function Investment() {
                             <StockCard key={stock.display} stock={stock} index={i} />
                         ))}
                     </div>
+
+                    <div style={{
+                        marginTop: '32px',
+                        textAlign: 'center',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.65rem',
+                        color: 'var(--color-text-dim)',
+                        letterSpacing: '0.05em',
+                        opacity: 0.7
+                    }}>
+                        * NOTE: DO YOUR OWN RISK & NOT FINANCIAL ADVICE
+                    </div>
                 </div>
             </div>
 
