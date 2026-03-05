@@ -51,8 +51,12 @@ export default function Navbar() {
                     color: 'var(--color-accent)',
                     textDecoration: 'none',
                     letterSpacing: '-0.02em',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
                 }}
             >
+                <img src="/favicon.png" alt="logo" style={{ width: '28px', height: '28px' }} />
                 anan
             </motion.a>
 
