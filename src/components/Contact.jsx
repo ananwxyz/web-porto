@@ -18,10 +18,10 @@ const contacts = [
     },
     {
         label: 'Email',
-        href: 'mailto:hello@ananw.xyz',
+        href: 'mailto:ananwxyz@gmail.com',
         icon: Mail,
         description: 'For collaborations & opportunities',
-        handle: 'hello@ananw.xyz',
+        handle: 'ananwxyz@gmail.com',
     },
 ];
 
@@ -135,7 +135,7 @@ export default function Contact() {
                     }}
                 >
                     <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em' }}>
-                        © 2026 <span style={{ color: 'var(--color-accent)' }}>anan</span> — Designed & built with precision
+                        © 2026 <span style={{ color: 'var(--color-accent)' }}>anan</span> — Artificial Intelligence said this looks good
                     </p>
                 </motion.div>
             </div>
