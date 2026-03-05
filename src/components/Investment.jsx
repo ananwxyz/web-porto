@@ -28,9 +28,9 @@ const insights = [
  * Edit ticker, name, currentPrice (fallback), and targetPrice below.
  */
 const stockWatchlist = [
-    { display: 'IDX:MEDC', ticker: 'MEDC.JK', name: 'Medco Energi Internasional Tbk', currentPrice: 1350, targetPrice: 2000 },
-    { display: 'IDX:PGAS', ticker: 'PGAS.JK', name: 'Perusahaan Gas Negara Tbk', currentPrice: 1550, targetPrice: 2200 },
-    { display: 'IDX:ENRG', ticker: 'ENRG.JK', name: 'Energi Mega Persada Tbk', currentPrice: 215, targetPrice: 350 },
+    { display: 'IDX:BUMI', ticker: 'BUMI.JK', name: 'Bumi Resources Tbk', currentPrice: 234, targetPrice: 350 },
+    { display: 'IDX:BUVA', ticker: 'BUVA.JK', name: 'Bukit Uluwatu Villa Tbk', currentPrice: 1060, targetPrice: 2000 },
+    { display: 'IDX:VKTR', ticker: 'VKTR.JK', name: 'VKTR Teknologi Mobilitas Tbk', currentPrice: 780, targetPrice: 1500 },
 ];
 
 function formatRupiah(num) {
