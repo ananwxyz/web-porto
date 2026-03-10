@@ -9,10 +9,17 @@ import { ExternalLink } from 'lucide-react';
 const projects = [
     {
         title: 'Temu Karir',
-        description: 'Direktori halaman karir resmi perusahaan Indonesia. Melamar langsung ke sumber resmi, aman dan terverifikasi otomatis.',
-        tags: ['Next.js', 'React.js', 'Cloudflare'],
+        description: 'A directory of official career pages from Indonesian companies. Apply directly to verified sources — safe and automatically validated.',
+        tags: ['Next.js', 'React.js', 'Supabase'],
         accent: '#a8ffc9',
         link: 'https://temukarir.com/',
+    },
+    {
+        title: 'SimulaSIM',
+        description: 'Interactive web simulator specifically for the driving license theory exam, featuring cartoon traffic videos and instant grading.',
+        tags: ['React.js', 'Tailwind CSS', 'Supabase'],
+        accent: '#60d9fa',
+        link: 'https://simulasim.my.id/',
     },
     {
         title: 'Coming Soon',
