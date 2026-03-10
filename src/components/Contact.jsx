@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Linkedin, Instagram, Mail, ArrowUpRight } from 'lucide-react';
+import { Linkedin, Github, Mail, ArrowUpRight } from 'lucide-react';
 
 const contacts = [
     {
@@ -10,10 +10,10 @@ const contacts = [
         handle: '@ananwxyz',
     },
     {
-        label: 'Instagram',
-        href: 'https://instagram.com/ananwxyz',
-        icon: Instagram,
-        description: 'Behind the scenes & daily inspiration',
+        label: 'GitHub',
+        href: 'https://github.com/ananwxyz',
+        icon: Github,
+        description: 'Open source projects & code repositories',
         handle: '@ananwxyz',
     },
     {
