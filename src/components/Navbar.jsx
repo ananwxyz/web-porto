@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import AlphaLogo from './AlphaLogo';
 
 const navLinks = [
     { label: 'Home', href: '#home' },
@@ -27,38 +28,30 @@ export default function Navbar() {
                 right: 0,
                 left: 0,
                 zIndex: 1000,
-                padding: '0 24px',
-                height: '72px',
+                padding: '0 40px',
+                height: '80px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                background: scrolled ? 'rgba(10, 10, 10, 0.85)' : 'transparent',
-                backdropFilter: scrolled ? 'blur(20px)' : 'none',
-                borderBottom: scrolled ? '1px solid rgba(80, 250, 123, 0.08)' : '1px solid transparent',
+                transition: 'all 0.4s ease',
+                background: scrolled ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.3)',
+                backdropFilter: 'blur(20px)',
+                borderBottom: '1px solid var(--color-glass-border)',
             }}
         >
             {/* Logo */}
-            <motion.a
-                href="#home"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
                 style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '1.1rem',
-                    fontWeight: 700,
-                    color: 'var(--color-accent)',
-                    textDecoration: 'none',
-                    letterSpacing: '-0.02em',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '8px',
+                    cursor: 'pointer'
                 }}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-                <img src="/favicon.png" alt="logo" style={{ width: '28px', height: '28px' }} />
-                anan
-            </motion.a>
+                <AlphaLogo size={32} color="var(--color-text-primary)" />
+            </motion.div>
 
             {/* Desktop Links */}
             <div
@@ -89,7 +82,7 @@ export default function Navbar() {
                         }}
                         onMouseEnter={(e) => {
                             e.target.style.color = 'var(--color-accent)';
-                            e.target.style.background = 'rgba(80, 250, 123, 0.06)';
+                            e.target.style.background = 'var(--color-accent-glow)';
                         }}
                         onMouseLeave={(e) => {
                             e.target.style.color = 'var(--color-text-secondary)';
@@ -133,14 +126,14 @@ export default function Navbar() {
                             right: 0,
                             width: '280px',
                             height: '100vh',
-                            background: 'rgba(10, 10, 10, 0.95)',
+                            background: 'rgba(5, 5, 5, 0.95)',
                             backdropFilter: 'blur(30px)',
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'center',
                             alignItems: 'center',
                             gap: '24px',
-                            borderLeft: '1px solid rgba(80, 250, 123, 0.1)',
+                            borderLeft: '1px solid var(--color-glass-border)',
                         }}
                     >
                         {navLinks.map((link, i) => (

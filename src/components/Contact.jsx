@@ -60,8 +60,9 @@ export default function Contact() {
                                 transition={{ delay: i * 0.15, duration: 0.6 }}
                                 whileHover={{
                                     y: -12,
-                                    boxShadow: '0 25px 60px rgba(80, 250, 123, 0.15), 0 0 50px rgba(80, 250, 123, 0.08)',
+                                    boxShadow: '0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.05)',
                                     transition: { duration: 0.3 },
+                                    borderColor: 'rgba(255, 255, 255, 0.4)',
                                 }}
                                 style={{
                                     padding: '36px 28px',
@@ -82,8 +83,8 @@ export default function Contact() {
                                         width: '56px',
                                         height: '56px',
                                         borderRadius: '14px',
-                                        background: 'rgba(80, 250, 123, 0.08)',
-                                        border: '1px solid rgba(80, 250, 123, 0.15)',
+                                        background: 'rgba(255, 255, 255, 0.1)',
+                                        border: '1px solid rgba(255, 255, 255, 0.2)',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
@@ -130,12 +131,12 @@ export default function Contact() {
                     style={{
                         marginTop: '80px',
                         paddingTop: '32px',
-                        borderTop: '1px solid rgba(80, 250, 123, 0.06)',
+                        borderTop: '1px solid var(--color-glass-border)',
                         textAlign: 'center',
                     }}
                 >
                     <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em' }}>
-                        © 2026 <span style={{ color: 'var(--color-accent)' }}>anan</span> — Artificial Intelligence said this looks good
+                        © 2026 <span style={{ color: 'var(--color-text-primary)', fontWeight: 600 }}>ANAN</span> — COMMITTED TO PROFESSIONAL GROWTH
                     </p>
                 </motion.div>
             </div>

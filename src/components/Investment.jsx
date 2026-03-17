@@ -157,19 +157,19 @@ export default function Investment() {
                                 transition={{ delay: i * 0.1, duration: 0.5 }}
                                 whileHover={{ y: -8, transition: { duration: 0.25 } }}
                                 style={{ padding: '28px', cursor: 'pointer', textDecoration: 'none', display: 'block' }}
-                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(80, 250, 123, 0.25)'; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(80, 250, 123, 0.12)'; }}
+                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-glass-border)'; }}
                             >
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                                     <span
                                         style={{
                                             fontFamily: 'var(--font-mono)',
                                             fontSize: '0.6rem',
-                                            color: 'var(--color-accent)',
-                                            background: 'rgba(80, 250, 123, 0.08)',
-                                            padding: '3px 8px',
-                                            borderRadius: '4px',
-                                            letterSpacing: '0.1em',
+                                            color: 'var(--color-text-primary)',
+                                            background: 'rgba(255, 255, 255, 0.05)',
+                                            padding: '4px 10px',
+                                            borderRadius: '6px',
+                                            border: '1px solid var(--color-glass-border)',
                                         }}
                                     >
                                         {item.tag}

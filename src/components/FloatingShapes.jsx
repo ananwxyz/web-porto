@@ -13,8 +13,8 @@ const shapes = [
 ];
 
 function ShapeSVG({ type, size }) {
-    const color = 'rgba(80, 250, 123, 0.08)';
-    const stroke = 'rgba(80, 250, 123, 0.15)';
+    const color = 'var(--color-accent-glow)';
+    const stroke = 'var(--color-glass-border)';
 
     switch (type) {
         case 'hexagon':

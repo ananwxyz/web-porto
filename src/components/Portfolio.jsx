@@ -11,7 +11,7 @@ const projects = [
         title: 'Temu Karir',
         description: 'A directory of official career pages from Indonesian companies. Apply directly to verified sources — safe and automatically validated.',
         tags: ['Next.js', 'React.js', 'Supabase'],
-        accent: '#a8ffc9',
+        accent: '#00f2ff',
         link: 'https://temukarir.com/',
     },
     {
@@ -25,7 +25,7 @@ const projects = [
         title: 'Coming Soon',
         description: 'soon...',
         tags: ['-', '-', '-'],
-        accent: '#50fa7b',
+        accent: '#00a4ad',
         link: null,
     },
 ];
@@ -45,7 +45,7 @@ function PortfolioCard({ project, index }) {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             whileHover={{
                 y: -15,
-                boxShadow: `0 25px 60px rgba(80, 250, 123, 0.12), 0 0 40px rgba(80, 250, 123, 0.06)`,
+                boxShadow: `0 25px 60px rgba(0, 242, 255, 0.1), 0 0 40px rgba(0, 242, 255, 0.05)`,
                 transition: { duration: 0.3 },
             }}
             className="glass-card"
@@ -59,25 +59,12 @@ function PortfolioCard({ project, index }) {
                 display: 'block',
             }}
             onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(80, 250, 123, 0.3)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
             }}
             onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(80, 250, 123, 0.12)';
+                e.currentTarget.style.borderColor = 'var(--color-glass-border)';
             }}
         >
-            {/* Top accent line */}
-            <div
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: '32px',
-                    right: '32px',
-                    height: '1px',
-                    background: `linear-gradient(90deg, transparent, ${project.accent}, transparent)`,
-                    opacity: 0.3,
-                }}
-            />
-
             {/* Project number */}
             <div
                 style={{
@@ -95,10 +82,11 @@ function PortfolioCard({ project, index }) {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                 <h3
                     style={{
-                        fontSize: '1.15rem',
+                        fontSize: '1.2rem',
                         fontWeight: 700,
                         color: 'var(--color-text-primary)',
                         letterSpacing: '-0.01em',
+                        fontFamily: 'var(--font-heading)'
                     }}
                 >
                     {project.title}
@@ -114,32 +102,10 @@ function PortfolioCard({ project, index }) {
                     fontSize: '0.85rem',
                     color: 'var(--color-text-secondary)',
                     lineHeight: 1.6,
-                    marginBottom: '20px',
                 }}
             >
                 {project.description}
             </p>
-
-            {/* Tags */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                {project.tags.map((tag, i) => (
-                    <span
-                        key={`${tag}-${i}`}
-                        style={{
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: '0.65rem',
-                            color: 'var(--color-accent)',
-                            background: 'rgba(80, 250, 123, 0.06)',
-                            border: '1px solid rgba(80, 250, 123, 0.12)',
-                            padding: '4px 10px',
-                            borderRadius: '6px',
-                            letterSpacing: '0.05em',
-                        }}
-                    >
-                        {tag}
-                    </span>
-                ))}
-            </div>
         </Tag>
     );
 }

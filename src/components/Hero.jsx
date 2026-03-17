@@ -23,124 +23,173 @@ export default function Hero() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
+                paddingTop: '120px',
             }}
         >
             <FloatingShapes containerRef={containerRef} />
 
-            {/* Radial gradient overlay */}
+            {/* Minimal overlay */}
             <div
                 style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'radial-gradient(ellipse at 50% 50%, rgba(80, 250, 123, 0.04) 0%, transparent 60%)',
+                    background: 'radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%)',
                     pointerEvents: 'none',
                 }}
             />
 
             <motion.div
-                style={{ opacity: heroOpacity, scale: heroScale, position: 'relative', zIndex: 2, textAlign: 'center', padding: '0 24px' }}
+                className="hero-grid"
+                style={{
+                    opacity: heroOpacity,
+                    scale: heroScale,
+                    position: 'relative',
+                    zIndex: 2,
+                    padding: '0 20px',
+                }}
             >
-                {/* Terminal label */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.75rem',
-                        color: 'var(--color-text-dim)',
-                        letterSpacing: '0.15em',
-                        marginBottom: '24px',
-                        textTransform: 'uppercase',
-                    }}
-                >
-                    <span style={{ color: 'var(--color-accent)' }}>$</span> ~/portfolio
-                </motion.div>
-
-                {/* Main Name */}
-                <motion.h1
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                    style={{
-                        fontSize: 'clamp(4rem, 15vw, 10rem)',
-                        fontWeight: 900,
-                        letterSpacing: '-0.06em',
-                        lineHeight: 0.9,
-                        marginBottom: '24px',
-                    }}
-                >
-                    <span className="text-gradient">anan</span>
-                </motion.h1>
-
-                {/* Subtitle */}
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.9rem',
-                        color: 'var(--color-text-secondary)',
-                        maxWidth: '500px',
-                        margin: '0 auto 32px',
-                        lineHeight: 1.7,
-                        letterSpacing: '0.02em',
-                    }}
-                >
-                    Building digital experiences at the intersection of
-                    <span style={{ color: 'var(--color-accent)' }}> technology</span> and
-                    <span style={{ color: 'var(--color-mint)' }}> finance</span>
-                </motion.p>
-
-                {/* Status indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 0.6 }}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '8px',
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.7rem',
-                        color: 'var(--color-text-dim)',
-                        letterSpacing: '0.1em',
-                        textTransform: 'uppercase',
-                    }}
-                >
-                    <span
+                <div style={{ textAlign: 'left' }}>
+                    {/* Terminal label */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
                         style={{
-                            width: '6px',
-                            height: '6px',
-                            borderRadius: '50%',
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: '0.7rem',
+                            color: 'var(--color-text-dim)',
+                            letterSpacing: '0.2em',
+                            marginBottom: '40px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '12px'
+                        }}
+                    >
+                        <span style={{ color: 'var(--color-accent)', fontWeight: 700 }}>VER 2.0.26</span>
+                        <div style={{ width: '40px', height: '1px', background: 'var(--color-text-dim)', opacity: 0.3 }} />
+                        <span>PORTFOLIO_CORE</span>
+                    </motion.div>
+
+                    {/* Main Name */}
+                    <motion.h1
+                        style={{
+                            fontFamily: 'var(--font-heading)',
+                            fontSize: 'clamp(4rem, 15vw, 14rem)',
+                            fontWeight: 900,
+                            letterSpacing: '-0.07em',
+                            lineHeight: 0.8,
+                            marginBottom: '40px',
+                            color: 'var(--color-text-primary)',
+                            position: 'relative'
+                        }}
+                    >
+                        <span style={{ display: 'block' }}>ANAN</span>
+                    </motion.h1>
+                </div>
+
+                <div style={{ textAlign: 'left', paddingBottom: '20px' }}>
+                    <motion.div
+                        initial={{ opacity: 0, scaleY: 0 }}
+                        animate={{ opacity: 1, scaleY: 1 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        style={{
+                            width: '2px',
+                            height: '60px',
                             background: 'var(--color-accent)',
-                            boxShadow: '0 0 8px var(--color-accent)',
-                            display: 'inline-block',
+                            marginBottom: '24px',
+                            originY: 0
                         }}
                     />
-                    Available for projects
-                </motion.div>
 
-                {/* Scroll indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.4, y: [0, 10, 0] }}
-                    transition={{ opacity: { delay: 1.5 }, y: { duration: 2, repeat: Infinity } }}
-                    style={{
-                        position: 'absolute',
-                        bottom: '-120px',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        gap: '8px',
-                    }}
-                >
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-text-dim)', letterSpacing: '0.15em' }}>SCROLL</span>
-                    <div style={{ width: '1px', height: '40px', background: 'linear-gradient(to bottom, var(--color-accent), transparent)' }} />
-                </motion.div>
+                    {/* Subtitle */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                        style={{
+                            fontFamily: 'var(--font-sans)',
+                            fontSize: '1.1rem',
+                            color: 'var(--color-text-secondary)',
+                            lineHeight: 1.6,
+                            marginBottom: '32px',
+                            fontWeight: 400
+                        }}
+                    >
+                        Crafting high-performance digital architectures at the intersection of
+                        <span style={{ color: 'var(--color-text-primary)', fontWeight: 500 }}> capital markets</span> and
+                        <span style={{ color: 'var(--color-text-primary)', fontWeight: 500 }}> visual engineering</span>.
+                    </motion.p>
+
+                    {/* Status indicator */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1, duration: 0.6 }}
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                            padding: '10px 16px',
+                            background: 'var(--color-bg-raised)',
+                            border: '1px solid var(--color-glass-border)',
+                            borderRadius: '100px',
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: '0.65rem',
+                            color: 'var(--color-text-dim)',
+                            letterSpacing: '0.05em',
+                            marginBottom: '40px'
+                        }}
+                    >
+                        <span
+                            style={{
+                                width: '6px',
+                                height: '6px',
+                                borderRadius: '50%',
+                                background: 'var(--color-accent)',
+                                boxShadow: '0 0 10px var(--color-accent)',
+                            }}
+                        />
+                        OPEN FOR COLLABORATION
+                    </motion.div>
+
+                    {/* Skills / System Capabilities Section */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1.2, duration: 0.8 }}
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(1, 1fr)',
+                            gap: '24px',
+                            borderTop: '1px solid var(--color-glass-border)',
+                            paddingTop: '24px'
+                        }}
+                    >
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[01] PROJECT_MANAGEMENT</span>
+                            <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
+                                Jira, Trello, Agile Methodologies
+                            </span>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[02] WEB_DEVELOPMENT</span>
+                            <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
+                                JS, TS, Py, Go, React, Node, Tailwind, PostgreSQL, RESTAPI
+                            </span>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[03] SOFTWARE_QA</span>
+                            <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
+                                Katalon, Postman, Cypress, Selenium, Testsprite, JMeter
+                            </span>
+                        </div>
+                    </motion.div>
+                </div>
+
+                {/* Vertical text on the edge - Hidden on mobile via CSS */}
+                <div className="hero-side-text">
+                    EST. MMXXIV / / HUMAN DRIVEN DESIGN
+                </div>
             </motion.div>
         </section>
     );
