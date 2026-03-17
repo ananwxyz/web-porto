@@ -72,6 +72,7 @@ export default function Hero() {
 
                     {/* Main Name */}
                     <motion.h1
+                        className="hero-title"
                         style={{
                             fontFamily: 'var(--font-heading)',
                             fontSize: 'clamp(4rem, 15vw, 14rem)',
@@ -87,8 +88,9 @@ export default function Hero() {
                     </motion.h1>
                 </div>
 
-                <div style={{ textAlign: 'left', paddingBottom: '20px' }}>
+                <div className="hero-subtitle-container" style={{ textAlign: 'left', paddingBottom: '20px' }}>
                     <motion.div
+                        className="hero-accent-line"
                         initial={{ opacity: 0, scaleY: 0 }}
                         animate={{ opacity: 1, scaleY: 1 }}
                         transition={{ duration: 0.8, delay: 0.4 }}

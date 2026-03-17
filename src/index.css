@@ -170,6 +170,26 @@ body::after {
   }
 }
 
+.hero-title {
+  margin-bottom: 20px !important;
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    margin-bottom: 40px !important;
+  }
+}
+
+.hero-subtitle-container {
+  padding-bottom: 0 !important;
+}
+
+@media (min-width: 1024px) {
+  .hero-subtitle-container {
+    padding-bottom: 20px !important;
+  }
+}
+
 .hero-side-text {
   display: none;
 }
@@ -187,6 +207,16 @@ body::after {
     letter-spacing: 0.4em;
     white-space: nowrap;
     opacity: 0.5;
+  }
+}
+
+.hero-accent-line {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero-accent-line {
+    display: block;
   }
 }
 
