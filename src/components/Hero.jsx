@@ -23,7 +23,11 @@ export default function Hero() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
-                paddingTop: '120px',
+                paddingTop: '80px', // Reduced padding to help centering
+                backgroundImage: 'url("/glass-bg.png")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
             }}
         >
             <FloatingShapes containerRef={containerRef} />
@@ -33,7 +37,7 @@ export default function Hero() {
                 style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%)',
+                    background: 'radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%)',
                     pointerEvents: 'none',
                 }}
             />
