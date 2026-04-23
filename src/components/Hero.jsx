@@ -65,9 +65,9 @@ export default function Hero() {
                             gap: '12px'
                         }}
                     >
-                        <span style={{ color: 'var(--color-accent)', fontWeight: 700 }}>VER 2.0.26</span>
+                        <span style={{ color: 'var(--color-accent)', fontWeight: 700 }}>SYS.QA_STABLE</span>
                         <div style={{ width: '40px', height: '1px', background: 'var(--color-text-dim)', opacity: 0.3 }} />
-                        <span>PORTFOLIO_CORE</span>
+                        <span>TEST_ENVIRONMENT_ACTIVE</span>
                     </motion.div>
 
                     {/* Main Name */}
@@ -117,9 +117,9 @@ export default function Hero() {
                             fontWeight: 400
                         }}
                     >
-                        Crafting high-performance digital architectures at the intersection of
-                        <span style={{ color: 'var(--color-text-primary)', fontWeight: 500 }}> capital markets</span> and
-                        <span style={{ color: 'var(--color-text-primary)', fontWeight: 500 }}> visual engineering</span>.
+                        Ensuring digital excellence through 
+                        <span style={{ color: 'var(--color-text-primary)', fontWeight: 500 }}> automated precision</span> and 
+                        <span style={{ color: 'var(--color-text-primary)', fontWeight: 500 }}> resilient testing</span> architectures.
                     </motion.p>
 
                     {/* Status indicator */}
@@ -128,9 +128,6 @@ export default function Hero() {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1, duration: 0.6 }}
                         style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '10px',
                             padding: '10px 16px',
                             background: 'var(--color-bg-raised)',
                             border: '1px solid var(--color-glass-border)',
@@ -139,7 +136,10 @@ export default function Hero() {
                             fontSize: '0.65rem',
                             color: 'var(--color-text-dim)',
                             letterSpacing: '0.05em',
-                            marginBottom: '40px'
+                            marginBottom: '40px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '10px'
                         }}
                     >
                         <span
@@ -147,11 +147,11 @@ export default function Hero() {
                                 width: '6px',
                                 height: '6px',
                                 borderRadius: '50%',
-                                background: 'var(--color-accent)',
-                                boxShadow: '0 0 10px var(--color-accent)',
+                                background: '#50fa7b', // Green for "Success/Stable"
+                                boxShadow: '0 0 10px #50fa7b',
                             }}
                         />
-                        OPEN FOR COLLABORATION
+                        SDET_ENGINEER // OPEN FOR COLLABORATION
                     </motion.div>
 
                     {/* Skills / System Capabilities Section */}
@@ -168,21 +168,21 @@ export default function Hero() {
                         }}
                     >
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[01] PROJECT_MANAGEMENT</span>
+                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[01] AUTOMATION_ENGINEERING</span>
                             <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
-                                Jira, Trello, Agile Methodologies
+                                Playwright, Cypress, Selenium, Appium, PyTest, K6
                             </span>
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[02] WEB_DEVELOPMENT</span>
+                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[02] QUALITY_ASSURANCE</span>
                             <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
-                                JS, TS, Py, Go, React, Node, Tailwind, PostgreSQL, RESTAPI
+                                Manual Testing, API Testing (Postman), CI/CD, JIRA, Agile Methodologies
                             </span>
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[03] SOFTWARE_QA</span>
+                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[03] TECHNICAL_STACK</span>
                             <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
-                                Katalon, Postman, Cypress, Selenium, Testsprite, JMeter
+                                JS, TS, Python, Go, React, Node, SQL, Git, Docker
                             </span>
                         </div>
                     </motion.div>
