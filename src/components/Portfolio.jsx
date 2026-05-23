@@ -45,7 +45,7 @@ function PortfolioCard({ project, index }) {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             whileHover={{
                 y: -15,
-                boxShadow: `0 25px 60px rgba(0, 242, 255, 0.1), 0 0 40px rgba(0, 242, 255, 0.05)`,
+                boxShadow: '0 25px 60px rgba(255, 255, 255, 0.05), 0 0 40px rgba(255, 255, 255, 0.03)',
                 transition: { duration: 0.3 },
             }}
             className="glass-card"
@@ -121,9 +121,9 @@ export default function Portfolio() {
                     transition={{ duration: 0.6 }}
                     style={{ marginBottom: '60px' }}
                 >
-                    <p className="section-title">// Selected Works</p>
+                    <p className="section-title">Projects</p>
                     <h2 className="section-heading">
-                        Projects I've <span className="text-gradient">Built</span>
+                        Things I've <span className="text-gradient">Built</span>
                     </h2>
                 </motion.div>
 

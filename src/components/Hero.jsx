@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import FloatingShapes from './FloatingShapes';
 
 export default function Hero() {
     const containerRef = useRef(null);
@@ -23,16 +22,14 @@ export default function Hero() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
-                paddingTop: '80px', // Reduced padding to help centering
+                paddingTop: '80px',
                 backgroundImage: 'url("/glass-bg.png")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
             }}
         >
-            <FloatingShapes containerRef={containerRef} />
-
-            {/* Minimal overlay */}
+            {/* Overlay */}
             <div
                 style={{
                     position: 'absolute',
@@ -53,42 +50,40 @@ export default function Hero() {
                 }}
             >
                 <div style={{ textAlign: 'left' }}>
-                    {/* Terminal label */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
+                    {/* Subtle role label */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         style={{
                             fontFamily: 'var(--font-mono)',
-                            fontSize: '0.7rem',
-                            color: 'var(--color-text-dim)',
-                            letterSpacing: '0.2em',
-                            marginBottom: '40px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '12px'
+                            fontSize: '0.75rem',
+                            color: '#ffffff',
+                            letterSpacing: '0.15em',
+                            marginBottom: '24px',
+                            textTransform: 'uppercase',
                         }}
                     >
-                        <span style={{ color: 'var(--color-accent)', fontWeight: 700 }}>SYS.QA_STABLE</span>
-                        <div style={{ width: '40px', height: '1px', background: 'var(--color-text-dim)', opacity: 0.3 }} />
-                        <span>TEST_ENVIRONMENT_ACTIVE</span>
-                    </motion.div>
+                        QA Engineer
+                    </motion.p>
 
                     {/* Main Name */}
                     <motion.h1
                         className="hero-title"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.3 }}
                         style={{
                             fontFamily: 'var(--font-heading)',
-                            fontSize: 'clamp(4rem, 15vw, 14rem)',
+                            fontSize: 'clamp(3.5rem, 12vw, 10rem)',
                             fontWeight: 900,
-                            letterSpacing: '-0.07em',
-                            lineHeight: 0.8,
+                            letterSpacing: '-0.05em',
+                            lineHeight: 0.85,
                             marginBottom: '40px',
                             color: 'var(--color-text-primary)',
-                            position: 'relative'
                         }}
                     >
-                        <span style={{ display: 'block' }}>ANAN</span>
+                        Anan
                     </motion.h1>
                 </div>
 
@@ -100,50 +95,41 @@ export default function Hero() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         style={{
                             width: '2px',
-                            height: '60px',
-                            background: 'var(--color-accent)',
+                            height: '48px',
+                            background: 'var(--color-accent-dim)',
                             marginBottom: '24px',
                             originY: 0
                         }}
                     />
 
-                    {/* Subtitle */}
+                    {/* Description — first person, natural */}
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
                         style={{
                             fontFamily: 'var(--font-sans)',
-                            fontSize: '1.1rem',
-                            color: 'var(--color-text-secondary)',
-                            lineHeight: 1.6,
+                            fontSize: '1.05rem',
+                            color: '#ffffff',
+                            lineHeight: 1.75,
+                            maxWidth: '500px',
                             marginBottom: '32px',
-                            fontWeight: 400
                         }}
                     >
-                        Ensuring digital excellence through 
-                        <span style={{ color: 'var(--color-text-primary)', fontWeight: 500 }}> automated precision</span> and 
-                        <span style={{ color: 'var(--color-text-primary)', fontWeight: 500 }}> resilient testing</span> architectures.
+                        I work in software quality assurance, helping teams ship reliable products through manual and automated testing. I collaborate closely with developers to catch defects early, validate functionality, and keep quality standards high throughout the development lifecycle.
                     </motion.p>
 
-                    {/* Status indicator */}
+                    {/* Availability — simple and honest */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1, duration: 0.6 }}
                         style={{
-                            padding: '10px 16px',
-                            background: 'var(--color-bg-raised)',
-                            border: '1px solid var(--color-glass-border)',
-                            borderRadius: '100px',
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: '0.65rem',
-                            color: 'var(--color-text-dim)',
-                            letterSpacing: '0.05em',
-                            marginBottom: '40px',
-                            display: 'inline-flex',
+                            display: 'flex',
                             alignItems: 'center',
-                            gap: '10px'
+                            gap: '8px',
+                            fontSize: '0.8rem',
+                            color: '#ffffff',
                         }}
                     >
                         <span
@@ -151,50 +137,13 @@ export default function Hero() {
                                 width: '6px',
                                 height: '6px',
                                 borderRadius: '50%',
-                                background: '#50fa7b', // Green for "Success/Stable"
-                                boxShadow: '0 0 10px #50fa7b',
+                                background: '#50fa7b',
+                                boxShadow: '0 0 8px #50fa7b',
+                                flexShrink: 0,
                             }}
                         />
-                        SDET_ENGINEER // OPEN FOR COLLABORATION
+                        Open to opportunities
                     </motion.div>
-
-                    {/* Skills / System Capabilities Section */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1.2, duration: 0.8 }}
-                        style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(1, 1fr)',
-                            gap: '24px',
-                            borderTop: '1px solid var(--color-glass-border)',
-                            paddingTop: '24px'
-                        }}
-                    >
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[01] AUTOMATION_ENGINEERING</span>
-                            <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
-                                Playwright, Cypress, Selenium, Appium, PyTest, K6
-                            </span>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[02] QUALITY_ASSURANCE</span>
-                            <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
-                                Manual Testing, API Testing (Postman), CI/CD, JIRA, Agile Methodologies
-                            </span>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--color-accent)', letterSpacing: '0.1em' }}>[03] TECHNICAL_STACK</span>
-                            <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
-                                JS, TS, Python, Go, React, Node, SQL, Git, Docker
-                            </span>
-                        </div>
-                    </motion.div>
-                </div>
-
-                {/* Vertical text on the edge - Hidden on mobile via CSS */}
-                <div className="hero-side-text">
-                    EST. MMXXIV / / HUMAN DRIVEN DESIGN
                 </div>
             </motion.div>
         </section>

@@ -37,9 +37,9 @@ export default function Contact() {
                     transition={{ duration: 0.6 }}
                     style={{ marginBottom: '60px', textAlign: 'center' }}
                 >
-                    <p className="section-title" style={{ textAlign: 'center' }}>// Get in Touch</p>
+                    <p className="section-title" style={{ textAlign: 'center' }}>Contact</p>
                     <h2 className="section-heading" style={{ textAlign: 'center' }}>
-                        Let's <span className="text-gradient">Connect</span>
+                        Get in <span className="text-gradient">Touch</span>
                     </h2>
                 </motion.div>
 
@@ -53,16 +53,15 @@ export default function Contact() {
                                 href={contact.href}
                                 target={contact.href.startsWith('mailto') ? undefined : '_blank'}
                                 rel="noopener noreferrer"
-                                className="glass-card glow-border"
+                                className="glass-card"
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.15, duration: 0.6 }}
                                 whileHover={{
-                                    y: -12,
-                                    boxShadow: '0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.05)',
+                                    y: -15,
+                                    boxShadow: '0 25px 60px rgba(255, 255, 255, 0.05), 0 0 40px rgba(255, 255, 255, 0.03)',
                                     transition: { duration: 0.3 },
-                                    borderColor: 'rgba(255, 255, 255, 0.4)',
                                 }}
                                 style={{
                                     padding: '36px 28px',
@@ -75,7 +74,10 @@ export default function Contact() {
                                     cursor: 'pointer',
                                     position: 'relative',
                                     overflow: 'hidden',
+                                    transition: 'border-color 0.3s ease',
                                 }}
+                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-glass-border)'; }}
                             >
                                 {/* Icon container */}
                                 <div
@@ -135,8 +137,8 @@ export default function Contact() {
                         textAlign: 'center',
                     }}
                 >
-                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em' }}>
-                        © 2026 <span style={{ color: 'var(--color-text-primary)', fontWeight: 600 }}>ANAN</span> — COMMITTED TO PROFESSIONAL GROWTH
+                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--color-text-dim)', letterSpacing: '0.05em' }}>
+                        © 2026 Anan
                     </p>
                 </motion.div>
             </div>

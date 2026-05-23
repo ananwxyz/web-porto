@@ -45,13 +45,19 @@ function StockCard({ stock, index }) {
 
     return (
         <motion.div
-            className="glass-card glow-border"
+            className="glass-card"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            whileHover={{ y: -8, transition: { duration: 0.25 } }}
-            style={{ padding: '28px', cursor: 'default' }}
+            whileHover={{
+                y: -15,
+                boxShadow: '0 25px 60px rgba(255, 255, 255, 0.05), 0 0 40px rgba(255, 255, 255, 0.03)',
+                transition: { duration: 0.3 },
+            }}
+            style={{ padding: '28px', cursor: 'default', transition: 'border-color 0.3s ease' }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-glass-border)'; }}
         >
             {/* Header */}
             <div style={{ marginBottom: '6px' }}>
@@ -119,9 +125,9 @@ export default function Investment() {
                     transition={{ duration: 0.6 }}
                     style={{ marginBottom: '60px' }}
                 >
-                    <p className="section-title">// Market Terminal</p>
+                    <p className="section-title">Investment</p>
                     <h2 className="section-heading">
-                        Investment <span className="text-gradient">Insights</span>
+                        Market <span className="text-gradient">Watchlist</span>
                     </h2>
                 </motion.div>
 
@@ -155,8 +161,12 @@ export default function Investment() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                                whileHover={{ y: -8, transition: { duration: 0.25 } }}
-                                style={{ padding: '28px', cursor: 'pointer', textDecoration: 'none', display: 'block' }}
+                                whileHover={{
+                                    y: -15,
+                                    boxShadow: '0 25px 60px rgba(255, 255, 255, 0.05), 0 0 40px rgba(255, 255, 255, 0.03)',
+                                    transition: { duration: 0.3 },
+                                }}
+                                style={{ padding: '28px', cursor: 'pointer', textDecoration: 'none', display: 'block', transition: 'border-color 0.3s ease' }}
                                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'; }}
                                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-glass-border)'; }}
                             >

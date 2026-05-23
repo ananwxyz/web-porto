@@ -6,6 +6,7 @@ import AlphaLogo from './AlphaLogo';
 const navLinks = [
     { label: 'Home', href: '#home' },
     { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Experience', href: '#experience' },
     { label: 'Investment', href: '#investment' },
     { label: 'Contact', href: '#contact' },
 ];
@@ -34,9 +35,9 @@ export default function Navbar() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 transition: 'all 0.4s ease',
-                background: scrolled ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.3)',
-                backdropFilter: 'blur(20px)',
-                borderBottom: '1px solid var(--color-glass-border)',
+                background: scrolled ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
+                backdropFilter: scrolled ? 'blur(20px)' : 'none',
+                borderBottom: scrolled ? '1px solid var(--color-glass-border)' : '1px solid transparent',
             }}
         >
             {/* Logo */}
