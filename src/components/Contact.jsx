@@ -1,6 +1,25 @@
 import { motion } from 'framer-motion';
 import { Linkedin, Github, Mail, ArrowUpRight } from 'lucide-react';
 
+function StravaIcon({ size = 24, ...props }) {
+    return (
+        <svg
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            {...props}
+        >
+            <path d="M4 17l6-11 6 11h-4l-2-4.5-2 4.5z" />
+            <path d="M14 17l3.5-6.5 3.5 6.5h-2.5l-1-2-1 2z" />
+        </svg>
+    );
+}
+
 const contacts = [
     {
         label: 'LinkedIn',
@@ -15,6 +34,13 @@ const contacts = [
         icon: Github,
         description: 'Open source projects & code repositories',
         handle: '@ananwxyz',
+    },
+    {
+        label: 'Strava',
+        href: 'https://strava.app.link/MheSUQfSn3b',
+        icon: StravaIcon,
+        description: 'Cycling & running activity logs',
+        handle: 'Anan',
     },
     {
         label: 'Email',
@@ -44,7 +70,7 @@ export default function Contact() {
                 </motion.div>
 
                 {/* Contact Cards */}
-                <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', maxWidth: '900px', margin: '0 auto' }}>
+                <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', maxWidth: '1200px', margin: '0 auto' }}>
                     {contacts.map((contact, i) => {
                         const Icon = contact.icon;
                         return (
@@ -144,10 +170,13 @@ export default function Contact() {
             </div>
 
             <style>{`
-        @media (max-width: 768px) {
-          .contact-grid { grid-template-columns: 1fr !important; max-width: 400px !important; }
-        }
-      `}</style>
+                @media (max-width: 1024px) {
+                    .contact-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 700px !important; }
+                }
+                @media (max-width: 768px) {
+                    .contact-grid { grid-template-columns: 1fr !important; max-width: 400px !important; }
+                }
+            `}</style>
         </section>
     );
 }
