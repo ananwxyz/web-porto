@@ -5,8 +5,8 @@ import AlphaLogo from './AlphaLogo';
 
 const navLinks = [
     { label: 'Home', href: '#home' },
-    { label: 'Portfolio', href: '#portfolio' },
     { label: 'Experience', href: '#experience' },
+    { label: 'Portfolio', href: '#portfolio' },
     { label: 'Investment', href: '#investment' },
     { label: 'Contact', href: '#contact' },
 ];
