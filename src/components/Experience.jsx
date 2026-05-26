@@ -18,29 +18,6 @@ const experiences = [
             'Participating in sprint planning and daily standups within a cross-functional team.',
         ],
     },
-    {
-        role: 'Software Tester - Freelance',
-        company: 'uTest',
-        industry: 'Crowdsourced Testing Platform',
-        period: 'Jan 2025 – Present',
-        isCurrent: true,
-        responsibilities: [
-            'Responsible for identifying and reporting bugs, conducting functional and usability testing across various web and mobile applications for international clients.',
-            'Project: Forex App Trading (NDA)',
-        ],
-    },
-    {
-        role: 'QA Engineer - Intern',
-        company: 'Karya Putra Group',
-        industry: 'Supplier of Office Stationary',
-        period: 'Aug 2025 – Feb 2026',
-        isCurrent: false,
-        responsibilities: [
-            'Created and executed 30+ manual test cases across web-based applications, identifying and documenting 20+ defects via Jira.',
-            'Performed basic API testing using Postman to validate endpoints and verify response accuracy.',
-            'Participated in bug triage discussions and collaborated with developers to verify bug fixes before release.',
-        ],
-    },
 ];
 
 function TimelineConnector({ isLast }) {
