@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { TrendingUp, BarChart3 } from 'lucide-react';
+import { TrendingUp, BarChart3, Coins } from 'lucide-react';
 import { useStockPrice } from '../hooks/useStockPrice';
 
 const insights = [
@@ -25,12 +25,20 @@ const insights = [
 
 /*
  * ── STOCK WATCHLIST ──
- * Edit ticker, name, currentPrice (fallback), and targetPrice below.
  */
 const stockWatchlist = [
     { display: 'IDX:BUMI', ticker: 'BUMI.JK', name: 'Bumi Resources Tbk', currentPrice: 234, targetPrice: 350 },
     { display: 'IDX:BUVA', ticker: 'BUVA.JK', name: 'Bukit Uluwatu Villa Tbk', currentPrice: 1060, targetPrice: 2000 },
     { display: 'IDX:VKTR', ticker: 'VKTR.JK', name: 'VKTR Teknologi Mobilitas Tbk', currentPrice: 780, targetPrice: 1500 },
+];
+
+/*
+ * ── DIVIDEND WATCHLIST ──
+ */
+const dividendWatchlist = [
+    { display: 'IDX:BBRI', ticker: 'BBRI.JK', name: 'Bank Rakyat Indonesia Tbk', currentPrice: 4700, dps: 310 },
+    { display: 'IDX:BSSR', ticker: 'BSSR.JK', name: 'Baramulti Suksessarana Tbk', currentPrice: 3800, dps: 760 },
+    { display: 'IDX:DMAS', ticker: 'DMAS.JK', name: 'Puradelta Lestari Tbk', currentPrice: 160, dps: 20 },
 ];
 
 function formatRupiah(num) {
@@ -106,6 +114,81 @@ function StockCard({ stock, index }) {
                         color: potentialUpside >= 0 ? 'var(--color-accent)' : '#ff5555',
                     }}>
                         {potentialUpside >= 0 ? '+' : ''}{potentialUpside.toFixed(2)}%
+                    </span>
+                </div>
+            </div>
+        </motion.div>
+    );
+}
+
+function DividendCard({ stock, index }) {
+    const { price, loading } = useStockPrice(stock.ticker);
+    const currentPrice = price || stock.currentPrice;
+    const dynamicYield = (stock.dps / currentPrice) * 100;
+
+    return (
+        <motion.div
+            className="glass-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            whileHover={{
+                y: -15,
+                boxShadow: '0 25px 60px rgba(255, 255, 255, 0.05), 0 0 40px rgba(255, 255, 255, 0.03)',
+                transition: { duration: 0.3 },
+            }}
+            style={{ padding: '28px', cursor: 'default', transition: 'border-color 0.3s ease' }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-glass-border)'; }}
+        >
+            {/* Header */}
+            <div style={{ marginBottom: '6px' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
+                    {stock.display}
+                </span>
+            </div>
+
+            {/* Company name */}
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', marginBottom: '16px', letterSpacing: '0.05em' }}>
+                {stock.name}
+            </div>
+
+            {/* Current Price */}
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-text-primary)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                {formatRupiah(currentPrice)}
+                {loading && <span style={{ fontSize: '0.8rem', color: 'var(--color-text-dim)', fontWeight: 'normal' }}>(updating...)</span>}
+            </div>
+
+            {/* Levels */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                        Current Price
+                    </span>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-text-secondary)', fontWeight: 600 }}>
+                        {formatRupiah(currentPrice)}
+                    </span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                        Dividend Per Share
+                    </span>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-accent)', fontWeight: 600 }}>
+                        {formatRupiah(stock.dps)}
+                    </span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                        Dividend Yield
+                    </span>
+                    <span style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.75rem',
+                        fontWeight: 600,
+                        color: 'var(--color-accent)',
+                    }}>
+                        {dynamicYield.toFixed(2)}%
                     </span>
                 </div>
             </div>
@@ -198,7 +281,7 @@ export default function Investment() {
                 </div>
 
                 {/* Stock Watchlist — Live Data */}
-                <div>
+                <div style={{ marginBottom: '60px' }}>
                     <div
                         style={{
                             fontFamily: 'var(--font-mono)',
@@ -220,9 +303,34 @@ export default function Investment() {
                             <StockCard key={stock.display} stock={stock} index={i} />
                         ))}
                     </div>
+                </div>
+
+                {/* Dividend Watchlist — Live Data */}
+                <div>
+                    <div
+                        style={{
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: '0.7rem',
+                            color: 'var(--color-text-dim)',
+                            marginBottom: '20px',
+                            letterSpacing: '0.15em',
+                            textTransform: 'uppercase',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                        }}
+                    >
+                        <Coins size={14} /> Dividend Watchlist
+                    </div>
+
+                    <div className="trading-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+                        {dividendWatchlist.map((stock, i) => (
+                            <DividendCard key={stock.display} stock={stock} index={i} />
+                        ))}
+                    </div>
 
                     <div style={{
-                        marginTop: '32px',
+                        marginTop: '40px',
                         textAlign: 'center',
                         fontFamily: 'var(--font-mono)',
                         fontSize: '0.65rem',
