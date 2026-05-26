@@ -36,8 +36,8 @@ const stockWatchlist = [
  * ── DIVIDEND WATCHLIST ──
  */
 const dividendWatchlist = [
-    { display: 'IDX:PBID', ticker: 'PBID.JK', name: 'Panca Budi Idaman Tbk', currentPrice: 1300, dps: 110 },
     { display: 'IDX:TOTL', ticker: 'TOTL.JK', name: 'Total Bangun Persada Tbk', currentPrice: 650, dps: 60 },
+    { display: 'IDX:BSSR', ticker: 'BSSR.JK', name: 'Baramulti Suksessarana Tbk', currentPrice: 3800, dps: 760 },
     { display: 'IDX:DMAS', ticker: 'DMAS.JK', name: 'Puradelta Lestari Tbk', currentPrice: 160, dps: 20 },
 ];
 
