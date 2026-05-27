@@ -64,7 +64,7 @@ export default function Hero() {
                             textTransform: 'uppercase',
                         }}
                     >
-                        QA Engineer
+                        SQA Engineer
                     </motion.p>
 
                     {/* Main Name */}

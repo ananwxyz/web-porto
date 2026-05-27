@@ -3,7 +3,7 @@ import { Briefcase, MapPin, Calendar, ChevronRight } from 'lucide-react';
 
 const experiences = [
     {
-        role: 'QA Engineer',
+        role: 'SQA Engineer',
         company: 'Yourpay',
         industry: 'Fintech - Payment Solutions',
         period: 'May 2026 – Present',
@@ -30,7 +30,7 @@ const experiences = [
         ],
     },
     {
-        role: 'QA Engineer',
+        role: 'SQA Engineer',
         company: 'Karya Putra Group',
         industry: 'Supplier of Office Stationary',
         period: 'Aug 2025 – Feb 2026',
