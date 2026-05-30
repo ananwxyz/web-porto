@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin, Calendar, ChevronRight } from 'lucide-react';
+import { Briefcase, Calendar, ChevronRight } from 'lucide-react';
 
 const experiences = [
     {
         role: 'SQA Engineer',
         company: 'Yourpay',
         industry: 'Fintech - Payment Solutions',
-        period: 'May 2026 – Present',
+        period: 'May 2026 – now',
         isCurrent: true,
         responsibilities: [
             'Ensuring quality of a fintech platform serving hundreds of thousands of Indonesian migrant workers with millions of transactions processed across Indonesia, Taiwan, Hong Kong, Korea, and Singapore.',
@@ -19,14 +19,14 @@ const experiences = [
         ],
     },
     {
-        role: 'Software Tester',
-        company: 'uTest',
-        industry: 'Crowdsourced Testing Platform',
-        period: 'Jan 2025 – Present',
+        role: 'SQA Engineer',
+        company: 'Bank Berkat Artha Melimpah',
+        industry: 'Banking - Financial Platform',
+        period: 'Jun 2026 – now',
         isCurrent: true,
         responsibilities: [
-            'Responsible for identifying and reporting bugs, conducting functional and usability testing across various web and mobile applications for international clients.',
-            'Project: Forex App Trading (NDA)',
+            'Contributing to a strategic corporate integration between Yourpay (YourTabungan) and Bank Berkat, as both entities move toward becoming a unified financial platform.',
+            'Responsible for QA on the account opening feature and core system integration, a foundational milestone in the integration of a fintech platform and a licensed rural bank (BPR).',
         ],
     },
     {
@@ -36,7 +36,7 @@ const experiences = [
         period: 'Aug 2025 – Feb 2026',
         isCurrent: false,
         responsibilities: [
-            'Created and executed 30+ manual test cases across web-based applications, identifying and documenting 20+ defects via Jira.',
+            'Created and executed 100+ manual test cases across web-based applications, identifying and documenting 20+ defects via Jira.',
             'Performed basic API testing using Postman to validate endpoints and verify response accuracy.',
             'Participated in bug triage discussions and collaborated with developers to verify bug fixes before release.',
         ],
@@ -179,9 +179,9 @@ function ExperienceCard({ experience, index, isLast }) {
                     className="exp-meta"
                     style={{
                         display: 'flex',
-                        gap: '16px',
+                        flexDirection: 'column',
+                        gap: '8px',
                         marginBottom: '20px',
-                        flexWrap: 'wrap',
                     }}
                 >
                     <span
@@ -191,12 +191,12 @@ function ExperienceCard({ experience, index, isLast }) {
                             gap: '6px',
                             fontFamily: 'var(--font-mono)',
                             fontSize: '0.7rem',
-                            color: 'var(--color-text-dim)',
+                            color: '#ffffff',
                             letterSpacing: '0.05em',
                         }}
                     >
                         <Briefcase size={12} />
-                        {experience.company}
+                        {experience.company} ({experience.industry})
                     </span>
                     <span
                         style={{
@@ -205,21 +205,7 @@ function ExperienceCard({ experience, index, isLast }) {
                             gap: '6px',
                             fontFamily: 'var(--font-mono)',
                             fontSize: '0.7rem',
-                            color: 'var(--color-text-dim)',
-                            letterSpacing: '0.05em',
-                        }}
-                    >
-                        <MapPin size={12} />
-                        {experience.industry}
-                    </span>
-                    <span
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '6px',
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: '0.7rem',
-                            color: 'var(--color-text-dim)',
+                            color: '#ffffff',
                             letterSpacing: '0.05em',
                         }}
                     >
