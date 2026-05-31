@@ -477,8 +477,50 @@ export default function DatePlanner({ onBack }) {
                 <Toast msg={toast} onDismiss={() => setToast('')} />
 
                 <button
-                  onClick={() => {
+                  onClick={async () => {
                     if (!food1) return setToast('Please share at least one of your comfort foods.');
+                    
+                    // Send to Discord Webhook if configured
+                    const webhookUrl = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
+                    if (webhookUrl) {
+                      const payload = {
+                        embeds: [
+                          {
+                            title: "💖 SHINTA SAID YES! 💖",
+                            color: 16738472, // Pink/Rose theme
+                            fields: [
+                              {
+                                name: "📅 Tanggal Kencan",
+                                value: formatDate(date),
+                                inline: true
+                              },
+                              {
+                                name: "⏰ Jam / Waktu",
+                                value: timeSlot,
+                                inline: true
+                              },
+                              {
+                                name: "🍲 Comfort Foods",
+                                value: comfortFoods.join(', '),
+                                inline: false
+                              }
+                            ],
+                            timestamp: new Date().toISOString()
+                          }
+                        ]
+                      };
+
+                      try {
+                        await fetch(webhookUrl, {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(payload)
+                        });
+                      } catch (err) {
+                        console.error('Failed to send Discord webhook:', err);
+                      }
+                    }
+                    
                     setScene('done');
                   }}
                   className={BTN_PRIMARY}
