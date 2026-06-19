@@ -1,3 +1,7 @@
+/* ══════════════════════════════════════════════
+   ARCHIVED — original component code below
+   ══════════════════════════════════════════════
+
 import { motion } from 'framer-motion';
 import { Linkedin, Github, Mail, ArrowUpRight } from 'lucide-react';
 
@@ -55,7 +59,7 @@ export default function Contact() {
     return (
         <section id="contact" style={{ padding: '120px 0 80px', position: 'relative' }}>
             <div className="section-container">
-                {/* Section Header */}
+                {/* Section Header * /}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +73,7 @@ export default function Contact() {
                     </h2>
                 </motion.div>
 
-                {/* Contact Cards */}
+                {/* Contact Cards * /}
                 <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', maxWidth: '1200px', margin: '0 auto' }}>
                     {contacts.map((contact, i) => {
                         const Icon = contact.icon;
@@ -105,7 +109,7 @@ export default function Contact() {
                                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'; }}
                                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-glass-border)'; }}
                             >
-                                {/* Icon container */}
+                                {/* Icon container * /}
                                 <div
                                     style={{
                                         width: '56px',
@@ -121,7 +125,7 @@ export default function Contact() {
                                     <Icon size={24} style={{ color: 'var(--color-accent)' }} />
                                 </div>
 
-                                {/* Label */}
+                                {/* Label * /}
                                 <div>
                                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', marginBottom: '4px' }}>
                                         <span style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
@@ -141,7 +145,7 @@ export default function Contact() {
                                     </span>
                                 </div>
 
-                                {/* Description */}
+                                {/* Description * /}
                                 <p style={{ fontSize: '0.8rem', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
                                     {contact.description}
                                 </p>
@@ -150,7 +154,7 @@ export default function Contact() {
                     })}
                 </div>
 
-                {/* Footer */}
+                {/* Footer * /}
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -180,3 +184,7 @@ export default function Contact() {
         </section>
     );
 }
+
+   ══════════════════════════════════════════════
+   END ARCHIVED
+   ══════════════════════════════════════════════ */

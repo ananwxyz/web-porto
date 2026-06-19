@@ -1,3 +1,7 @@
+/* ══════════════════════════════════════════════
+   ARCHIVED — original component code below
+   ══════════════════════════════════════════════
+
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -40,7 +44,7 @@ export default function Navbar() {
                 borderBottom: scrolled ? '1px solid var(--color-glass-border)' : '1px solid transparent',
             }}
         >
-            {/* Logo */}
+            {/* Logo * /}
             <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -54,7 +58,7 @@ export default function Navbar() {
                 <AlphaLogo size={32} color="var(--color-text-primary)" />
             </motion.div>
 
-            {/* Desktop Links */}
+            {/* Desktop Links * /}
             <div
                 style={{
                     display: 'flex',
@@ -95,7 +99,7 @@ export default function Navbar() {
                 ))}
             </div>
 
-            {/* Mobile Hamburger */}
+            {/* Mobile Hamburger * /}
             <button
                 className="mobile-nav-toggle"
                 onClick={() => setIsOpen(!isOpen)}
@@ -113,7 +117,7 @@ export default function Navbar() {
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu * /}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -174,3 +178,7 @@ export default function Navbar() {
         </nav>
     );
 }
+
+   ══════════════════════════════════════════════
+   END ARCHIVED
+   ══════════════════════════════════════════════ */

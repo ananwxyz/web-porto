@@ -1,3 +1,7 @@
+/* ══════════════════════════════════════════════
+   ARCHIVED — original component code below
+   ══════════════════════════════════════════════
+
 import { useState, useEffect } from 'react';
 import { motion, useSpring } from 'framer-motion';
 
@@ -65,3 +69,7 @@ export default function CustomCursor() {
         </motion.div>
     );
 }
+
+   ══════════════════════════════════════════════
+   END ARCHIVED
+   ══════════════════════════════════════════════ */

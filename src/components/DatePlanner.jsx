@@ -1,13 +1,17 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-unescaped-entities */
+/* ══════════════════════════════════════════════
+   ARCHIVED — original component code below
+   ══════════════════════════════════════════════
+
+/* eslint-disable react/prop-types * /
+/* eslint-disable react/no-unescaped-entities * /
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-/* ─── shared design tokens ─── */
+/* ─── shared design tokens ─── * /
 const BTN_PRIMARY =
   'w-full py-4.5 px-6 rounded-2xl bg-[#f25c88] hover:bg-[#e04a76] active:scale-[0.98] text-white font-bold text-base tracking-wide shadow-[0_8px_24px_rgba(242,92,136,0.2)] hover:shadow-[0_12px_28px_rgba(242,92,136,0.3)] transition-all duration-300 cursor-pointer select-none';
 
-/* ─── Elegant Minimal Progress Line ─── */
+/* ─── Elegant Minimal Progress Line ─── * /
 function StepBar({ step }) {
   return (
     <div className="w-full py-6 select-none flex flex-col gap-2">
@@ -27,7 +31,7 @@ function StepBar({ step }) {
   );
 }
 
-/* ─── Inline toast-style validation message ─── */
+/* ─── Inline toast-style validation message ─── * /
 function Toast({ msg, onDismiss }) {
   useEffect(() => {
     if (!msg) return;
@@ -52,7 +56,7 @@ function Toast({ msg, onDismiss }) {
   );
 }
 
-/* ─── Polaroid sticker for summary (Mature version) ─── */
+/* ─── Polaroid sticker for summary (Mature version) ─── * /
 function Polaroid() {
   return (
     <motion.div
@@ -71,7 +75,7 @@ function Polaroid() {
   );
 }
 
-/* ─── PAGE-LEVEL WRAPPER ─── */
+/* ─── PAGE-LEVEL WRAPPER ─── * /
 function Page({ children, className = '' }) {
   return (
     <motion.div
@@ -86,7 +90,7 @@ function Page({ children, className = '' }) {
   );
 }
 
-/* ─── White card container ─── */
+/* ─── White card container ─── * /
 function Card({ children, className = '', dotted = false }) {
   return (
     <div
@@ -99,7 +103,7 @@ function Card({ children, className = '', dotted = false }) {
   );
 }
 
-/* ─── Beautiful Floating Hearts Background ─── */
+/* ─── Beautiful Floating Hearts Background ─── * /
 function FloatingHearts() {
   const [hearts, setHearts] = useState([]);
 
@@ -155,7 +159,7 @@ function FloatingHearts() {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════ * /
 export default function DatePlanner({ onBack }) {
   const [scene, setScene] = useState('invite'); // invite | success | when | food | done
   const [date, setDate] = useState('');
@@ -166,7 +170,7 @@ export default function DatePlanner({ onBack }) {
   const [noPos, setNoPos] = useState({ x: 0, y: 0, out: false });
   const [toast, setToast] = useState('');
 
-  /* ── time slot options ── */
+  /* ── time slot options ── * /
   const TIME_OPTS = [
     { value: '5:00 PM', label: '5:00 PM', sub: 'Early dinner at a quiet place' },
     { value: '6:00 PM', label: '6:00 PM', sub: 'Perfect golden hour timing' },
@@ -175,7 +179,7 @@ export default function DatePlanner({ onBack }) {
     { value: '9:00 PM', label: '9:00 PM', sub: 'Late night dessert or coffee' },
   ];
 
-  /* ── elusive No button ── */
+  /* ── elusive No button ── * /
   function runAway() {
     const bw = 110, bh = 52;
     setNoPos({
@@ -185,7 +189,7 @@ export default function DatePlanner({ onBack }) {
     });
   }
 
-  /* ── date shortcut handler ── */
+  /* ── date shortcut handler ── * /
   const selectShortcutDate = (type) => {
     const today = new Date();
     if (type === 'today') {
@@ -204,10 +208,10 @@ export default function DatePlanner({ onBack }) {
     }
   };
 
-  /* ── comfort foods as array helper ── */
+  /* ── comfort foods as array helper ── * /
   const comfortFoods = [food1, food2, food3].filter(Boolean);
 
-  /* ── date formatter ── */
+  /* ── date formatter ── * /
   function formatDate(str) {
     if (!str) return '—';
     const d = new Date(str + 'T12:00:00');
@@ -232,7 +236,7 @@ export default function DatePlanner({ onBack }) {
     >
       <FloatingHearts />
 
-      {/* Back to Portfolio — top-left, only on invite */}
+      {/* Back to Portfolio — top-left, only on invite * /}
       <AnimatePresence>
         {scene === 'invite' && (
           <motion.button
@@ -248,10 +252,10 @@ export default function DatePlanner({ onBack }) {
         )}
       </AnimatePresence>
 
-      {/* Main outer card positioning container */}
+      {/* Main outer card positioning container * /}
       <div className="relative z-10 w-full max-w-md px-6 sm:px-8 flex flex-col items-center justify-center min-h-[85vh] md:min-h-[70vh]">
         
-        {/* Step bar — appears on steps 1-4 */}
+        {/* Step bar — appears on steps 1-4 * /}
         {scene !== 'invite' && (
           <div className="w-full max-w-sm mb-4">
             <StepBar step={STEP_FOR_SCENE[scene] ?? 1} />
@@ -260,10 +264,10 @@ export default function DatePlanner({ onBack }) {
 
         <AnimatePresence mode="wait">
 
-          {/* ══════════ INVITE ══════════ */}
+          {/* ══════════ INVITE ══════════ * /}
           {scene === 'invite' && (
             <Page key="invite" className="justify-center py-6 md:py-8">
-              {/* Envelope image */}
+              {/* Envelope image * /}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -272,16 +276,16 @@ export default function DatePlanner({ onBack }) {
                 <img src="/cute-heart-envelope.png" alt="Invitation envelope" className="w-full h-full object-contain" />
               </motion.div>
 
-              {/* Headline with mobile scaling and graceful word wrap */}
+              {/* Headline with mobile scaling and graceful word wrap * /}
               <div className="text-center space-y-3 px-2 sm:px-4">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#e83e70] leading-tight tracking-tight break-words">
                   Shinta, will you go on a date with me?
                 </h1>
               </div>
 
-              {/* YES / NO buttons */}
+              {/* YES / NO buttons * /}
               <div className="flex flex-col items-center gap-4 w-full mt-4 max-w-xs sm:max-w-sm">
-                {/* YES */}
+                {/* YES * /}
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
@@ -291,7 +295,7 @@ export default function DatePlanner({ onBack }) {
                   Yes
                 </motion.button>
 
-                {/* NO — elusive */}
+                {/* NO — elusive * /}
                 <button
                   onMouseEnter={runAway}
                   onTouchStart={runAway}
@@ -309,10 +313,10 @@ export default function DatePlanner({ onBack }) {
             </Page>
           )}
 
-          {/* ══════════ SUCCESS ══════════ */}
+          {/* ══════════ SUCCESS ══════════ * /}
           {scene === 'success' && (
             <Page key="success" className="text-center py-8">
-              {/* Elegant Heart Vector or minimal representation */}
+              {/* Elegant Heart Vector or minimal representation * /}
               <motion.div
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -341,7 +345,7 @@ export default function DatePlanner({ onBack }) {
             </Page>
           )}
 
-          {/* ══════════ WHEN ══════════ */}
+          {/* ══════════ WHEN ══════════ * /}
           {scene === 'when' && (
             <Page key="when" className="w-full max-w-sm">
               <div className="text-center space-y-2">
@@ -351,7 +355,7 @@ export default function DatePlanner({ onBack }) {
               </div>
 
               <Card className="space-y-6">
-                {/* Date picker */}
+                {/* Date picker * /}
                 <div className="space-y-3">
                   <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest">
                     Pick a Day
@@ -363,7 +367,7 @@ export default function DatePlanner({ onBack }) {
                     className="w-full px-4 py-4 rounded-xl border-2 border-pink-100 focus:border-[#f25c88] focus:outline-none bg-pink-50/20 text-pink-900 font-semibold text-sm transition-colors duration-200 cursor-pointer"
                   />
                   
-                  {/* Date Shortcut Buttons */}
+                  {/* Date Shortcut Buttons * /}
                   <div className="flex flex-wrap gap-2 pt-1.5 justify-center sm:justify-start">
                     {[
                       { type: 'today', label: 'Today' },
@@ -382,7 +386,7 @@ export default function DatePlanner({ onBack }) {
                   </div>
                 </div>
 
-                {/* Custom time-slot picker */}
+                {/* Custom time-slot picker * /}
                 <div className="space-y-3">
                   <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest">
                     Select a Time
@@ -423,10 +427,10 @@ export default function DatePlanner({ onBack }) {
                   </div>
                 </div>
 
-                {/* Validation toast */}
+                {/* Validation toast * /}
                 <Toast msg={toast} onDismiss={() => setToast('')} />
 
-                {/* CTA */}
+                {/* CTA * /}
                 <button
                   onClick={() => {
                     if (!date)     return setToast('Please pick a date first.');
@@ -441,7 +445,7 @@ export default function DatePlanner({ onBack }) {
             </Page>
           )}
 
-          {/* ══════════ FOOD ══════════ */}
+          {/* ══════════ FOOD ══════════ * /}
           {scene === 'food' && (
             <Page key="food" className="w-full max-w-sm">
               <div className="text-center space-y-2 px-2">
@@ -473,7 +477,7 @@ export default function DatePlanner({ onBack }) {
                   </div>
                 ))}
 
-                {/* Validation toast */}
+                {/* Validation toast * /}
                 <Toast msg={toast} onDismiss={() => setToast('')} />
 
                 <button
@@ -531,14 +535,14 @@ export default function DatePlanner({ onBack }) {
             </Page>
           )}
 
-          {/* ══════════ DONE ══════════ */}
+          {/* ══════════ DONE ══════════ * /}
           {scene === 'done' && (
             <Page key="done" className="w-full max-w-sm">
               <Card dotted className="relative space-y-6">
-                {/* Polaroid sticker */}
+                {/* Polaroid sticker * /}
                 <Polaroid />
 
-                {/* Header copy */}
+                {/* Header copy * /}
                 <div className="space-y-3 pr-14">
                   <h1 className="text-3xl sm:text-4xl font-black text-[#e83e70] leading-tight break-words">
                     It's a date!
@@ -551,7 +555,7 @@ export default function DatePlanner({ onBack }) {
                   </p>
                 </div>
 
-                {/* Summary rows */}
+                {/* Summary rows * /}
                 <div className="border-t border-pink-100 pt-5 space-y-5">
                   <div className="flex gap-4.5 items-start">
                     <span className="text-pink-500 text-lg leading-none shrink-0 pt-0.5">📅</span>
@@ -579,3 +583,7 @@ export default function DatePlanner({ onBack }) {
     </div>
   );
 }
+
+   ══════════════════════════════════════════════
+   END ARCHIVED
+   ══════════════════════════════════════════════ */

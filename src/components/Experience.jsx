@@ -1,3 +1,7 @@
+/* ══════════════════════════════════════════════
+   ARCHIVED — original component code below
+   ══════════════════════════════════════════════
+
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, ChevronRight } from 'lucide-react';
 
@@ -71,7 +75,7 @@ function ExperienceCard({ experience, index, isLast }) {
                 paddingBottom: isLast ? 0 : '48px',
             }}
         >
-            {/* Timeline dot */}
+            {/* Timeline dot * /}
             <div
                 style={{
                     position: 'absolute',
@@ -101,10 +105,10 @@ function ExperienceCard({ experience, index, isLast }) {
                 )}
             </div>
 
-            {/* Timeline connector */}
+            {/* Timeline connector * /}
             {!isLast && <TimelineConnector isLast={isLast} />}
 
-            {/* Card */}
+            {/* Card * /}
             <motion.div
                 className="glass-card"
                 whileHover={{
@@ -125,7 +129,7 @@ function ExperienceCard({ experience, index, isLast }) {
                     e.currentTarget.style.borderColor = 'var(--color-glass-border)';
                 }}
             >
-                {/* Subtle accent glow on top edge */}
+                {/* Subtle accent glow on top edge * /}
                 {experience.isCurrent && (
                     <div
                         style={{
@@ -140,7 +144,7 @@ function ExperienceCard({ experience, index, isLast }) {
                     />
                 )}
 
-                {/* Header row */}
+                {/* Header row * /}
                 <div className="exp-card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px', gap: '16px', flexWrap: 'wrap' }}>
                     <h3
                         style={{
@@ -174,7 +178,7 @@ function ExperienceCard({ experience, index, isLast }) {
                     )}
                 </div>
 
-                {/* Meta info */}
+                {/* Meta info * /}
                 <div
                     className="exp-meta"
                     style={{
@@ -214,7 +218,7 @@ function ExperienceCard({ experience, index, isLast }) {
                     </span>
                 </div>
 
-                {/* Responsibilities */}
+                {/* Responsibilities * /}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     {experience.responsibilities.map((item, i) => (
                         <div
@@ -254,7 +258,7 @@ export default function Experience() {
     return (
         <section id="experience" style={{ padding: '120px 0', position: 'relative' }}>
             <div className="section-container">
-                {/* Section Header */}
+                {/* Section Header * /}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -268,7 +272,7 @@ export default function Experience() {
                     </h2>
                 </motion.div>
 
-                {/* Timeline */}
+                {/* Timeline * /}
                 <div style={{ maxWidth: '800px' }}>
                     {experiences.map((exp, i) => (
                         <ExperienceCard
@@ -292,3 +296,7 @@ export default function Experience() {
         </section>
     );
 }
+
+   ══════════════════════════════════════════════
+   END ARCHIVED
+   ══════════════════════════════════════════════ */

@@ -1,3 +1,7 @@
+/* ══════════════════════════════════════════════
+   ARCHIVED — original component code below
+   ══════════════════════════════════════════════
+
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 
@@ -5,7 +9,7 @@ import { ExternalLink } from 'lucide-react';
  * ── PROJECTS ──
  * Add a `link` field to make the card clickable.
  * Set link to '#' or omit it for "Coming Soon" cards.
- */
+ * /
 const projects = [
     {
         title: 'Temu Karir',
@@ -65,7 +69,7 @@ function PortfolioCard({ project, index }) {
                 e.currentTarget.style.borderColor = 'var(--color-glass-border)';
             }}
         >
-            {/* Project number */}
+            {/* Project number * /}
             <div
                 style={{
                     fontFamily: 'var(--font-mono)',
@@ -78,7 +82,7 @@ function PortfolioCard({ project, index }) {
                 {String(index + 1).padStart(2, '0')}
             </div>
 
-            {/* Title with icon */}
+            {/* Title with icon * /}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                 <h3
                     style={{
@@ -96,7 +100,7 @@ function PortfolioCard({ project, index }) {
                 )}
             </div>
 
-            {/* Description */}
+            {/* Description * /}
             <p
                 style={{
                     fontSize: '0.85rem',
@@ -152,3 +156,7 @@ export default function Portfolio() {
         </section>
     );
 }
+
+   ══════════════════════════════════════════════
+   END ARCHIVED
+   ══════════════════════════════════════════════ */

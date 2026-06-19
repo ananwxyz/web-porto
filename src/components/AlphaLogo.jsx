@@ -1,3 +1,7 @@
+/* ══════════════════════════════════════════════
+   ARCHIVED — original component code below
+   ══════════════════════════════════════════════
+
 import React from 'react';
 
 export default function AlphaLogo({ size = 40, color = 'currentColor' }) {
@@ -20,3 +24,7 @@ export default function AlphaLogo({ size = 40, color = 'currentColor' }) {
         </svg>
     );
 }
+
+   ══════════════════════════════════════════════
+   END ARCHIVED
+   ══════════════════════════════════════════════ */

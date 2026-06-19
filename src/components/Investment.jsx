@@ -1,3 +1,7 @@
+/* ══════════════════════════════════════════════
+   ARCHIVED — original component code below
+   ══════════════════════════════════════════════
+
 import { motion } from 'framer-motion';
 import { TrendingUp, BarChart3, Coins } from 'lucide-react';
 import { useStockPrice } from '../hooks/useStockPrice';
@@ -25,7 +29,7 @@ const insights = [
 
 /*
  * ── STOCK WATCHLIST ──
- */
+ * /
 const stockWatchlist = [
     { display: 'IDX:BUMI', ticker: 'BUMI.JK', name: 'Bumi Resources Tbk', currentPrice: 234, targetPrice: 350 },
     { display: 'IDX:BUVA', ticker: 'BUVA.JK', name: 'Bukit Uluwatu Villa Tbk', currentPrice: 1060, targetPrice: 2000 },
@@ -34,7 +38,7 @@ const stockWatchlist = [
 
 /*
  * ── DIVIDEND WATCHLIST ──
- */
+ * /
 const dividendWatchlist = [
     { display: 'IDX:TOTL', ticker: 'TOTL.JK', name: 'Total Bangun Persada Tbk', currentPrice: 650, dps: 60 },
     { display: 'IDX:BSSR', ticker: 'BSSR.JK', name: 'Baramulti Suksessarana Tbk', currentPrice: 3800, dps: 760 },
@@ -67,25 +71,25 @@ function StockCard({ stock, index }) {
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-glass-border)'; }}
         >
-            {/* Header */}
+            {/* Header * /}
             <div style={{ marginBottom: '6px' }}>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
                     {stock.display}
                 </span>
             </div>
 
-            {/* Company name */}
+            {/* Company name * /}
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', marginBottom: '16px', letterSpacing: '0.05em' }}>
                 {stock.name}
             </div>
 
-            {/* Current Price */}
+            {/* Current Price * /}
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-text-primary)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 {formatRupiah(currentPrice)}
                 {loading && <span style={{ fontSize: '0.8rem', color: 'var(--color-text-dim)', fontWeight: 'normal' }}>(updating...)</span>}
             </div>
 
-            {/* Levels */}
+            {/* Levels * /}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
@@ -142,25 +146,25 @@ function DividendCard({ stock, index }) {
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-glass-border)'; }}
         >
-            {/* Header */}
+            {/* Header * /}
             <div style={{ marginBottom: '6px' }}>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
                     {stock.display}
                 </span>
             </div>
 
-            {/* Company name */}
+            {/* Company name * /}
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', marginBottom: '16px', letterSpacing: '0.05em' }}>
                 {stock.name}
             </div>
 
-            {/* Current Price */}
+            {/* Current Price * /}
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-text-primary)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 {formatRupiah(currentPrice)}
                 {loading && <span style={{ fontSize: '0.8rem', color: 'var(--color-text-dim)', fontWeight: 'normal' }}>(updating...)</span>}
             </div>
 
-            {/* Levels */}
+            {/* Levels * /}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
@@ -200,7 +204,7 @@ export default function Investment() {
     return (
         <section id="investment" style={{ padding: '120px 0', position: 'relative' }}>
             <div className="section-container">
-                {/* Section Header */}
+                {/* Section Header * /}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -214,7 +218,7 @@ export default function Investment() {
                     </h2>
                 </motion.div>
 
-                {/* Market Insights */}
+                {/* Market Insights * /}
                 <div style={{ marginBottom: '60px' }}>
                     <div
                         style={{
@@ -280,7 +284,7 @@ export default function Investment() {
                     </div>
                 </div>
 
-                {/* Stock Watchlist — Live Data */}
+                {/* Stock Watchlist — Live Data * /}
                 <div style={{ marginBottom: '60px' }}>
                     <div
                         style={{
@@ -305,7 +309,7 @@ export default function Investment() {
                     </div>
                 </div>
 
-                {/* Dividend Watchlist — Live Data */}
+                {/* Dividend Watchlist — Live Data * /}
                 <div>
                     <div
                         style={{
@@ -354,3 +358,7 @@ export default function Investment() {
         </section>
     );
 }
+
+   ══════════════════════════════════════════════
+   END ARCHIVED
+   ══════════════════════════════════════════════ */

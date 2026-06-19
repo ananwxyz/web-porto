@@ -1,3 +1,7 @@
+/* ══════════════════════════════════════════════
+   ARCHIVED — original component code below
+   ══════════════════════════════════════════════
+
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -96,3 +100,7 @@ export default function FloatingShapes({ containerRef }) {
         </div>
     );
 }
+
+   ══════════════════════════════════════════════
+   END ARCHIVED
+   ══════════════════════════════════════════════ */

@@ -1,3 +1,7 @@
+/* ══════════════════════════════════════════════
+   ARCHIVED — original component code below
+   ══════════════════════════════════════════════
+
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -29,7 +33,7 @@ export default function Hero() {
                 backgroundRepeat: 'no-repeat'
             }}
         >
-            {/* Overlay */}
+            {/* Overlay * /}
             <div
                 style={{
                     position: 'absolute',
@@ -50,7 +54,7 @@ export default function Hero() {
                 }}
             >
                 <div style={{ textAlign: 'left' }}>
-                    {/* Subtle role label */}
+                    {/* Subtle role label * /}
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -67,7 +71,7 @@ export default function Hero() {
                         SQA Engineer
                     </motion.p>
 
-                    {/* Main Name */}
+                    {/* Main Name * /}
                     <motion.h1
                         className="hero-title"
                         initial={{ opacity: 0, y: 20 }}
@@ -102,7 +106,7 @@ export default function Hero() {
                         }}
                     />
 
-                    {/* Description — first person, natural */}
+                    {/* Description — first person, natural * /}
                     <motion.p
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -119,7 +123,7 @@ export default function Hero() {
                         I work in software quality assurance, helping teams ship reliable products through manual and automated testing. I collaborate closely with developers to catch defects early, validate functionality, and keep quality standards high throughout the development lifecycle.
                     </motion.p>
 
-                    {/* Availability — simple and honest */}
+                    {/* Availability — simple and honest * /}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -149,3 +153,7 @@ export default function Hero() {
         </section>
     );
 }
+
+   ══════════════════════════════════════════════
+   END ARCHIVED
+   ══════════════════════════════════════════════ */
